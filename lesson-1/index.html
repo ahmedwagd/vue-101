@@ -1,0 +1,45 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://unpkg.com/vue@3.0.2"></script>
+    <style>
+      .box {
+        padding: 100px 0;
+        width: 400px;
+        text-align: center;
+        background: #ddd;
+        margin: 20px;
+        display: inline-block;
+      }
+    </style>
+    <title>Learn Vue-js</title>
+  </head>
+  <body>
+    <div id="app">
+      <div v-if="showBooks">
+        <p>{{ title}} - {{author}} - {{age}}</p>
+      </div>
+      <button @click="toggleShowBooks">
+        <span v-if="showBooks">Hide Books</span>
+        <span v-else>Show Books</span>
+      </button>
+      <button v-on:click="increaseAge">click +</button>
+      <button v-on:click="decreaseAge">click -</button>
+      <div @click="changeTitle">click</div>
+      <div v-show="showBooks">Currentyly showing books</div>
+      <br />
+      <!-- Mouse Events -->
+      <div class="box" @mouseover="handelEvent($event, 5)">
+        mouseover (enter)
+      </div>
+      <div class="box" @mouseleave="handelEvent">mouseleave</div>
+      <div class="box" @dblclick="handelEvent">double click</div>
+      <div class="box" @mousemove="handelMouseMove">
+        position - {{x}} : {{y}}
+      </div>
+    </div>
+    <script src="./main.js"></script>
+  </body>
+</html>
